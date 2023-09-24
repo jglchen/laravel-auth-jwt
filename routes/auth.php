@@ -38,7 +38,7 @@ Route::patch('/update-profile', [ProfileController::class, 'update'])
                 ->name('profile.update');
 
 Route::get('/verify-email/{id}/{hash}', VerifyEmailController::class)
-                ->middleware(['auth:sanctum', 'signed', 'throttle:6,1'])
+                ->middleware(['auth:api', 'signed', 'throttle:6,1'])
                 ->name('verification.verify');
 
 Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
